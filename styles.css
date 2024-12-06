@@ -489,4 +489,50 @@ select.difficulty-select {
         padding: 1rem;
     }
 }
+
+.language-switch {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.lang-btn {
+    background: var(--card-background);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.2s ease;
+    min-width: 60px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.lang-btn:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(234, 179, 8, 0.2);
+}
+
+.lang-btn.active {
+    background: var(--primary-color);
+    color: var(--background-dark);
+    opacity: 1;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(234, 179, 8, 0.3);
+    transform: scale(1.05);
+}
+
+/* Add these styles for smooth language transitions */
+[data-lang-content] {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.lang-switching [data-lang-content] {
+    opacity: 0;
+}
   

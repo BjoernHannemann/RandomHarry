@@ -1,80 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Referrer-Policy" content="no-referrer">
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-    
-    <title>Harry Potter Character Picker | Random Wizarding World Name Generator</title>
-    <meta name="description" content="Discover random characters from the Harry Potter series! Our magical name picker features over 70 characters from the Wizarding World, including Harry Potter, Hermione Granger, and more.">
-    <meta name="keywords" content="Harry Potter, character picker, random name generator, Wizarding World, Hogwarts characters, Harry Potter characters">
-    <meta name="author" content="Your Name">
-    
-    <meta property="og:title" content="Harry Potter Character Picker | Random Wizarding World Name Generator">
-    <meta property="og:description" content="Discover random characters from the Harry Potter series! Features over 70 characters from the Wizarding World.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-domain.com">
-    <meta property="og:image" content="https://your-domain.com/images/hp-picker-preview.jpg">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Harry Potter Character Picker">
-    <meta name="twitter:description" content="Discover random characters from the Harry Potter series!">
-    <meta name="twitter:image" content="https://your-domain.com/images/hp-picker-preview.jpg">
-    
-    <link rel="canonical" href="https://your-domain.com">
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&display=swap" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    
-    <link rel="icon" type="image/png" href="favicon.png">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Referrer-Policy" content="no-referrer" />
+    <meta
+      http-equiv="Permissions-Policy"
+      content="camera=(), microphone=(), geolocation=()"
+    />
+
+    <title>
+      Harry Potter Character Picker | Random Wizarding World Name Generator
+    </title>
+    <meta
+      name="description"
+      content="Discover random characters from the Harry Potter series! Our magical name picker features over 70 characters from the Wizarding World, including Harry Potter, Hermione Granger, and more."
+    />
+    <meta
+      name="keywords"
+      content="Harry Potter, character picker, random name generator, Wizarding World, Hogwarts characters, Harry Potter characters"
+    />
+    <meta name="author" content="Your Name" />
+
+    <meta
+      property="og:title"
+      content="Harry Potter Character Picker | Random Wizarding World Name Generator"
+    />
+    <meta
+      property="og:description"
+      content="Discover random characters from the Harry Potter series! Features over 70 characters from the Wizarding World."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.com" />
+    <meta
+      property="og:image"
+      content="https://your-domain.com/images/hp-picker-preview.jpg"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Harry Potter Character Picker" />
+    <meta
+      name="twitter:description"
+      content="Discover random characters from the Harry Potter series!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://your-domain.com/images/hp-picker-preview.jpg"
+    />
+
+    <link rel="canonical" href="https://your-domain.com" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&display=swap"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+  </head>
+  <body>
+    <div class="language-switch">
+      <button
+        class="lang-btn active"
+        data-lang="en"
+        aria-label="Switch to English"
+      >
+        EN
+      </button>
+      <button class="lang-btn" data-lang="de" aria-label="Switch to German">
+        DE
+      </button>
+    </div>
+
     <main>
-        <div class="container">
-            <header>
-                <h1>Harry Potter Character Picker</h1>
-                <div class="controls">
-                    <h2 class="difficulty-label">Choose Your Difficulty</h2>
-                    <div class="select-container">
-                        <select id="difficultySelect" 
-                                class="difficulty-select" 
-                                aria-label="Select difficulty level">
-                            <option value="all">All Characters</option>
-                            <option value="easy">Easy (Main Characters)</option>
-                            <option value="medium">Medium (Supporting Characters)</option>
-                            <option value="hard">Hard (Rare Characters)</option>
-                        </select>
-                    </div>
-                    <p class="counter">Characters in category: <span id="characterCount">0</span></p>
-                </div>
-            </header>
-            
-            <section class="character-card" aria-live="polite">
-                <h2 id="characterName">Select a difficulty and click the button!</h2>
-                <p id="characterInfo"></p>
-            </section>
-            
-            <button id="pickButton" aria-label="Pick a random Harry Potter character">
-                Pick Character ⚡
-            </button>
-        </div>
+      <div class="container">
+        <header>
+          <h1 data-lang="title">Harry Potter Character Picker</h1>
+          <div class="controls">
+            <h2 class="difficulty-label" data-lang="subtitle">
+              Choose Your Difficulty
+            </h2>
+            <div class="select-container">
+              <select
+                id="difficultySelect"
+                class="difficulty-select"
+                aria-label="Select difficulty level"
+              >
+                <option value="all">All Characters</option>
+                <option value="easy">Easy (Main Characters)</option>
+                <option value="medium">Medium (Supporting Characters)</option>
+                <option value="hard">Hard (Rare Characters)</option>
+              </select>
+            </div>
+            <p class="counter">
+              Characters in category: <span id="characterCount">0</span>
+            </p>
+          </div>
+        </header>
+
+        <section class="character-card" aria-live="polite">
+          <h2 id="characterName">Select a difficulty and click the button!</h2>
+          <p id="characterInfo"></p>
+        </section>
+
+        <button
+          id="pickButton"
+          aria-label="Pick a random Harry Potter character"
+        >
+          Pick Character ⚡
+        </button>
+      </div>
     </main>
-    
+
     <footer>
-        <p>Explore the magical world of Harry Potter characters! This picker includes characters from all seven books.</p>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#characters">Characters</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+      <p>
+        Explore the magical world of Harry Potter characters! This picker
+        includes characters from all seven books.
+      </p>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#characters">Characters</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </footer>
 
-    <script src="script.js" integrity="sha384-[your-hash-here]" crossorigin="anonymous"></script>
-</body>
-</html> 
+    <script
+      src="script.js"
+      integrity="sha384-[your-hash-here]"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
