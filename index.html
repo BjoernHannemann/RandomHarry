@@ -37,11 +37,19 @@
         <div class="container">
             <header>
                 <h1>Harry Potter Character Picker</h1>
-                <p class="counter">Total Characters: <span id="characterCount">0</span></p>
+                <div class="controls">
+                    <select id="difficultySelect" class="difficulty-select" aria-label="Select difficulty level">
+                        <option value="all">All Characters</option>
+                        <option value="easy">Easy (Main Characters)</option>
+                        <option value="medium">Medium (Supporting Characters)</option>
+                        <option value="hard">Hard (Rare Characters)</option>
+                    </select>
+                    <p class="counter">Characters in category: <span id="characterCount">0</span></p>
+                </div>
             </header>
             
             <section class="character-card" aria-live="polite">
-                <h2 id="characterName">Click the button to pick a character!</h2>
+                <h2 id="characterName">Select a difficulty and click the button!</h2>
                 <p id="characterInfo"></p>
             </section>
             
